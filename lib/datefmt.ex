@@ -433,7 +433,7 @@ defmodule DateFmt do
   end
 
   defp parse_directive(string, dir, fmt) do
-    case Regex.run(%r/^~(\d+)\.\.[0 ]B$/, fmt) do
+    case Regex.run(~r/^~(\d+)\.\.[0 ]B$/, fmt) do
       [_, <<num>>] ->
         read_token(string, dir, [?~, num, ?d])
       _ ->
